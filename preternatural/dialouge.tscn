@@ -1,0 +1,93 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgyou4euckbgx"]
+
+[ext_resource type="PackedScene" uid="uid://dtxhwxiau76so" path="res://bg_box.tscn" id="1_avunv"]
+[ext_resource type="Script" uid="uid://dtof3c6q7fsju" path="res://dialouge.gd" id="1_w3fx8"]
+[ext_resource type="FontFile" uid="uid://co3q0p8lf8jib" path="res://angelina.TTF" id="2_hgtjj"]
+[ext_resource type="FontFile" uid="uid://casao8o4at025" path="res://danielbk.ttf" id="3_hgtjj"]
+[ext_resource type="PackedScene" uid="uid://c27kefjgw7jkp" path="res://speaker_icon.tscn" id="8_i8pxr"]
+
+[sub_resource type="Theme" id="Theme_w3fx8"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/fonts/font = ExtResource("2_hgtjj")
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/fonts/normal_font = ExtResource("3_hgtjj")
+
+[node name="dialouge" type="Control"]
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w3fx8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -234.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = -40
+alignment = 1
+
+[node name="speaker_icon" parent="HBoxContainer" instance=ExtResource("8_i8pxr")]
+layout_mode = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="bg box" parent="HBoxContainer/AspectRatioContainer" instance=ExtResource("1_avunv")]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/AspectRatioContainer/bg box"]
+custom_minimum_size = Vector2(750, 120)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -54.0
+offset_right = 375.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_w3fx8")
+
+[node name="exit" type="Button" parent="HBoxContainer/AspectRatioContainer/bg box"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 47.0
+offset_top = -65.0
+offset_right = 84.0
+offset_bottom = -34.0
+grow_vertical = 0
+text = "X
+"
+
+[node name="continue" type="Button" parent="HBoxContainer/AspectRatioContainer/bg box"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -68.0
+offset_right = -43.0
+offset_bottom = -37.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "-->"
+
+[connection signal="pressed" from="HBoxContainer/AspectRatioContainer/bg box/exit" to="." method="close"]
+[connection signal="pressed" from="HBoxContainer/AspectRatioContainer/bg box/continue" to="." method="_on_continue_pressed"]

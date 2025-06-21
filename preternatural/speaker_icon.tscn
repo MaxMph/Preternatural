@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://c27kefjgw7jkp"]
+
+[ext_resource type="Texture2D" uid="uid://b82g5jfuvhq3g" path="res://art/ui/square box 1.png" id="1_8gch7"]
+[ext_resource type="Script" uid="uid://dl8v8h5bsdbqn" path="res://speaker_icon.gd" id="2_04vi4"]
+[ext_resource type="Texture2D" uid="uid://bm1k10wxmpjqc" path="res://art/IMG_5401.png" id="2_50tbw"]
+[ext_resource type="Texture2D" uid="uid://bkhjgbothrdky" path="res://art/IMG_5395.png" id="3_04vi4"]
+
+[node name="speaker_icon" type="TextureRect"]
+offset_right = 200.0
+offset_bottom = 200.0
+texture = ExtResource("1_8gch7")
+stretch_mode = 2
+script = ExtResource("2_04vi4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -66.0
+offset_right = 78.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="icons" type="Node" parent="."]
+
+[node name="ben" type="TextureRect" parent="icons"]
+visible = false
+z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -569.0
+offset_top = -369.0
+offset_right = -428.0
+offset_bottom = -229.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_50tbw")
+expand_mode = 1
+
+[node name="may" type="TextureRect" parent="icons"]
+visible = false
+z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -572.0
+offset_top = -369.0
+offset_right = -428.0
+offset_bottom = -226.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_04vi4")
+expand_mode = 1

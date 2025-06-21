@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm6kjacc7i6kj"]
+
+[ext_resource type="Script" uid="uid://tqnnk5ntx7dh" path="res://audiocontroller.gd" id="1_gae2k"]
+[ext_resource type="AudioStream" uid="uid://cvqhpg3vfrww3" path="res://avala-trail-forest-nature-246779.mp3" id="1_lpgt0"]
+
+[node name="Audiocontroller" type="Node"]
+script = ExtResource("1_gae2k")
+
+[node name="nature1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_lpgt0")

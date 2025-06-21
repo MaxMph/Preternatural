@@ -1,0 +1,88 @@
+[gd_scene load_steps=10 format=3 uid="uid://b7qww45eln67a"]
+
+[ext_resource type="PackedScene" uid="uid://dtxhwxiau76so" path="res://bg_box.tscn" id="1_avunv"]
+[ext_resource type="Script" uid="uid://dtof3c6q7fsju" path="res://dialouge.gd" id="1_w3fx8"]
+[ext_resource type="FontFile" uid="uid://co3q0p8lf8jib" path="res://angelina.TTF" id="2_hgtjj"]
+[ext_resource type="Texture2D" uid="uid://b82g5jfuvhq3g" path="res://art/ui/square box 1.png" id="3_gocnh"]
+[ext_resource type="FontFile" uid="uid://casao8o4at025" path="res://danielbk.ttf" id="3_hgtjj"]
+[ext_resource type="Texture2D" uid="uid://bm1k10wxmpjqc" path="res://art/IMG_5401.png" id="5_76goi"]
+[ext_resource type="Texture2D" uid="uid://bkhjgbothrdky" path="res://art/IMG_5395.png" id="5_um10f"]
+[ext_resource type="PackedScene" uid="uid://c27kefjgw7jkp" path="res://speaker_icon.tscn" id="8_i8pxr"]
+
+[sub_resource type="Theme" id="Theme_w3fx8"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/fonts/font = ExtResource("2_hgtjj")
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/fonts/normal_font = ExtResource("3_hgtjj")
+
+[node name="dialouge" type="Node2D"]
+z_index = 2
+script = ExtResource("1_w3fx8")
+
+[node name="bg box" parent="." instance=ExtResource("1_avunv")]
+
+[node name="SquareBox1" type="Sprite2D" parent="."]
+visible = false
+z_index = 2
+position = Vector2(-484, 2)
+texture = ExtResource("3_gocnh")
+
+[node name="ColorRect" type="ColorRect" parent="SquareBox1"]
+z_index = -1
+custom_minimum_size = Vector2(100, 100)
+offset_left = -73.0
+offset_top = -69.0
+offset_right = 82.0
+offset_bottom = 73.0
+
+[node name="Img5395" type="Sprite2D" parent="SquareBox1"]
+z_index = -1
+position = Vector2(-0.999969, 2)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("5_um10f")
+
+[node name="Img5401" type="Sprite2D" parent="SquareBox1"]
+z_index = -1
+position = Vector2(2, 3)
+scale = Vector2(0.2, 0.21)
+texture = ExtResource("5_76goi")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(750, 120)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -54.0
+offset_right = 375.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_w3fx8")
+
+[node name="exit" type="Button" parent="."]
+offset_left = -372.0
+offset_top = 36.0
+offset_right = -335.0
+offset_bottom = 67.0
+text = "X
+"
+
+[node name="continue" type="Button" parent="."]
+offset_left = 342.0
+offset_top = 36.0
+offset_right = 379.0
+offset_bottom = 67.0
+text = "-->"
+
+[node name="speaker_icon" parent="." instance=ExtResource("8_i8pxr")]
+offset_left = -584.0
+offset_top = -99.0
+offset_right = -384.0
+offset_bottom = 101.0
+
+[connection signal="pressed" from="exit" to="." method="close"]
+[connection signal="pressed" from="continue" to="." method="_on_continue_pressed"]
