@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgyou4euckbgx"]
+[gd_scene load_steps=11 format=3 uid="uid://bgyou4euckbgx"]
 
 [ext_resource type="PackedScene" uid="uid://dtxhwxiau76so" path="res://bg_box.tscn" id="1_avunv"]
 [ext_resource type="Script" uid="uid://dtof3c6q7fsju" path="res://dialouge.gd" id="1_w3fx8"]
 [ext_resource type="FontFile" uid="uid://co3q0p8lf8jib" path="res://angelina.TTF" id="2_hgtjj"]
 [ext_resource type="FontFile" uid="uid://casao8o4at025" path="res://danielbk.ttf" id="3_hgtjj"]
+[ext_resource type="Theme" uid="uid://bx1ny4oxdum8q" path="res://uibutton.tres" id="6_r8a1s"]
+[ext_resource type="Texture2D" uid="uid://sxbf6rd16sjn" path="res://art/ui/IMG_5336 - Copy.jpg" id="7_76goi"]
+[ext_resource type="Texture2D" uid="uid://bh3rog7gs5kyx" path="res://art/ui/arrow 2 - Copy.png" id="7_i8pxr"]
+[ext_resource type="Texture2D" uid="uid://yhighinb2dm8" path="res://art/ui/arrow_2_-_Copy-removebg-preview.png" id="7_r8a1s"]
 [ext_resource type="PackedScene" uid="uid://c27kefjgw7jkp" path="res://speaker_icon.tscn" id="8_i8pxr"]
 
 [sub_resource type="Theme" id="Theme_w3fx8"]
@@ -71,23 +75,58 @@ offset_top = -65.0
 offset_right = 84.0
 offset_bottom = -34.0
 grow_vertical = 0
+theme = ExtResource("6_r8a1s")
 text = "X
 "
 
 [node name="continue" type="Button" parent="HBoxContainer/AspectRatioContainer/bg box"]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -80.0
-offset_top = -68.0
-offset_right = -43.0
+offset_left = -137.0
+offset_top = -78.0
+offset_right = -41.0
 offset_bottom = -37.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "-->"
+theme = ExtResource("6_r8a1s")
+icon = ExtResource("7_76goi")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="continue2" type="Button" parent="HBoxContainer/AspectRatioContainer/bg box"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = -67.0
+offset_right = -45.0
+offset_bottom = -39.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("6_r8a1s")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/AspectRatioContainer/bg box/continue2"]
+position = Vector2(32, 13)
+scale = Vector2(0.314286, 0.314286)
+texture = ExtResource("7_r8a1s")
+
+[node name="Arrow2-Copy" type="Sprite2D" parent="HBoxContainer/AspectRatioContainer/bg box"]
+visible = false
+position = Vector2(765, 144.125)
+scale = Vector2(0.35, 0.346429)
+texture = ExtResource("7_i8pxr")
 
 [connection signal="pressed" from="HBoxContainer/AspectRatioContainer/bg box/exit" to="." method="close"]
 [connection signal="pressed" from="HBoxContainer/AspectRatioContainer/bg box/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="HBoxContainer/AspectRatioContainer/bg box/continue2" to="." method="_on_continue_pressed"]

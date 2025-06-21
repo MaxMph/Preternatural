@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bx1ny4oxdum8q"]
+
+[ext_resource type="Texture2D" uid="uid://sxbf6rd16sjn" path="res://art/ui/IMG_5336 - Copy.jpg" id="1_mie0p"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_76goi"]
+texture = ExtResource("1_mie0p")
+
+[resource]
+Button/styles/normal = SubResource("StyleBoxTexture_76goi")

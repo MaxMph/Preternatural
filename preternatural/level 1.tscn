@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://5rdyylsdg7f2"]
+[gd_scene load_steps=8 format=3 uid="uid://5rdyylsdg7f2"]
 
-[ext_resource type="Texture2D" uid="uid://bd0x8my8mugpg" path="res://IMG_5330.png" id="1_a6ulu"]
 [ext_resource type="Texture2D" uid="uid://caxkv7oypqcsc" path="res://786.jpg" id="1_d05ww"]
 [ext_resource type="Script" uid="uid://dy1lrb2x57686" path="res://level 1.gd" id="1_u82o0"]
-[ext_resource type="Texture2D" uid="uid://byghl4jchheje" path="res://IMG_5330 - Copy (2).png" id="2_x0rdp"]
-[ext_resource type="PackedScene" uid="uid://dtxhwxiau76so" path="res://bg_box.tscn" id="3_0t3ih"]
+[ext_resource type="Texture2D" uid="uid://byghl4jchheje" path="res://art/IMG_5330 - Copy (2).png" id="2_x0rdp"]
 [ext_resource type="Script" uid="uid://ban1i0cvx6pk6" path="res://event_trigger.gd" id="5_2ow8g"]
+[ext_resource type="Texture2D" uid="uid://c0cieb1b6en8r" path="res://art/ladder-removebg-preview.png" id="6_tbpbd"]
 [ext_resource type="PackedScene" uid="uid://bgyou4euckbgx" path="res://dialouge.tscn" id="9_rtx8d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tbpbd"]
@@ -15,43 +14,16 @@ height = 194.0
 [node name="scene 1" type="Node2D"]
 script = ExtResource("1_u82o0")
 
-[node name="Img5330" type="Sprite2D" parent="."]
-visible = false
-rotation = 0.00174533
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("1_a6ulu")
+[node name="paper overlay" type="Sprite2D" parent="."]
+modulate = Color(0.756467, 0.685247, 0.632174, 0.364706)
+z_index = 6
+texture = ExtResource("1_d05ww")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Img5330-Copy(2)" type="Sprite2D" parent="."]
+[node name="bg" type="Sprite2D" parent="."]
 scale = Vector2(0.875, 0.875)
 texture = ExtResource("2_x0rdp")
-
-[node name="bg box" parent="." instance=ExtResource("3_0t3ih")]
-visible = false
-offset_left = 0.0
-offset_top = 260.0
-offset_right = 853.0
-offset_bottom = 462.0
-
-[node name="ladder" type="Area2D" parent="." node_paths=PackedStringArray("event_node")]
-script = ExtResource("5_2ow8g")
-event_node = NodePath("../events/ladder")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ladder"]
-position = Vector2(-86, -275)
-shape = SubResource("CapsuleShape2D_tbpbd")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="dialouge" parent="CanvasLayer" instance=ExtResource("9_rtx8d")]
-
-[node name="786" type="Sprite2D" parent="CanvasLayer"]
-modulate = Color(0.631628, 0.552453, 0.493809, 0.27451)
-z_index = 6
-position = Vector2(618, 446)
-texture = ExtResource("1_d05ww")
 
 [node name="events" type="Node2D" parent="."]
 
@@ -73,9 +45,20 @@ visible = false
 offset_top = 392.0
 offset_bottom = 392.0
 
-[node name="786" type="Sprite2D" parent="events"]
-modulate = Color(0.631628, 0.552453, 0.493809, 0.27451)
-z_index = 6
-texture = ExtResource("1_d05ww")
+[node name="triggers" type="Node" parent="events"]
 
-[connection signal="input_event" from="ladder" to="ladder" method="_on_input_event"]
+[node name="ladder" type="Area2D" parent="events/triggers" node_paths=PackedStringArray("event_node")]
+script = ExtResource("5_2ow8g")
+event_node = NodePath("../../ladder")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="events/triggers/ladder"]
+position = Vector2(-86, -275)
+shape = SubResource("CapsuleShape2D_tbpbd")
+
+[node name="Ladder-removebg-preview" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-80, 57)
+scale = Vector2(0.919023, 0.919023)
+texture = ExtResource("6_tbpbd")
+
+[connection signal="input_event" from="events/triggers/ladder" to="events/triggers/ladder" method="_on_input_event"]

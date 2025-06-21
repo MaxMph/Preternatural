@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dtxhwxiau76so"]
 
-[ext_resource type="Texture2D" uid="uid://2vl2tiu4jy31" path="res://IMG_5334_-_Copy-removebg-preview.png" id="1_a4oh0"]
+[ext_resource type="Texture2D" uid="uid://2vl2tiu4jy31" path="res://art/IMG_5334_-_Copy-removebg-preview.png" id="1_a4oh0"]
 
 [node name="bg box" type="TextureRect"]
 anchors_preset = 8
@@ -24,9 +24,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -384.5
+offset_left = -390.5
 offset_top = -64.0
-offset_right = 394.5
+offset_right = 395.5
 offset_bottom = 76.0
 grow_horizontal = 2
 grow_vertical = 2

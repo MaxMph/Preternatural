@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byghl4jchheje"
-path="res://.godot/imported/IMG_5330 - Copy (2).png-a86427a62bd9bd26e68930449c882279.ctex"
+uid="uid://yhighinb2dm8"
+path="res://.godot/imported/arrow_2_-_Copy-removebg-preview.png-5ff69265130ffe0ab222732d6c54b59f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://IMG_5330 - Copy (2).png"
-dest_files=["res://.godot/imported/IMG_5330 - Copy (2).png-a86427a62bd9bd26e68930449c882279.ctex"]
+source_file="res://art/ui/arrow_2_-_Copy-removebg-preview.png"
+dest_files=["res://.godot/imported/arrow_2_-_Copy-removebg-preview.png-5ff69265130ffe0ab222732d6c54b59f.ctex"]
 
 [params]
 
