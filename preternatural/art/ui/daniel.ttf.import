@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://c47v333makh3k"
-path="res://.godot/imported/danielbd.ttf-ccdf05a174e52f86a95aae6c0193dfd7.fontdata"
+uid="uid://dy11mlxeojd5s"
+path="res://.godot/imported/daniel.ttf-c0e60330f7122f0beb083ff55ce393cd.fontdata"
 
 [deps]
 
-source_file="res://danielbd.ttf"
-dest_files=["res://.godot/imported/danielbd.ttf-ccdf05a174e52f86a95aae6c0193dfd7.fontdata"]
+source_file="res://art/ui/daniel.ttf"
+dest_files=["res://.godot/imported/daniel.ttf-c0e60330f7122f0beb083ff55ce393cd.fontdata"]
 
 [params]
 

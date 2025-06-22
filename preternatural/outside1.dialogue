@@ -1,0 +1,40 @@
+~ intro
+June 19th
+May: Tuesday, 5:45
+Ruchmond Virginia
+=> END
+
+~ broken_ladder
+The ladder was damaged in a recent storm. Its too high to reach.
+if DialogueConditions.found_ladder == true
+	- Use the other ladder.
+		do DialogueConditions.main.show_ladder()
+		- climb
+=> END
+
+~ found_ladder
+if DialogueConditions.found_ladder == false
+	theres a black tarp strewn across the ground.
+	- Look under
+		You find an old ladder, maybe you can use it to get up the building.
+		set DialogueConditions.found_ladder = true
+	- Leave
+	=> END!
+else
+	The tarp lies flatter now that the ladder was removed.
+=> END
+
+~ working_ladder
+
+=> END
+
+~ trash
+some of the townsfolk used to drop there trash here.
+now, years later the bags have sunken into the ground, and the trash has started to compost.
+~ trash1
+- Search
+	You find nothing of interest.
+	The trash leaves you with a foul oder.
+	=> trash1
+- Leave
+=> END

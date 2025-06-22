@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dtxhwxiau76so" path="res://bg_box.tscn" id="1_avunv"]
 [ext_resource type="Script" uid="uid://dtof3c6q7fsju" path="res://dialouge.gd" id="1_w3fx8"]
-[ext_resource type="FontFile" uid="uid://co3q0p8lf8jib" path="res://angelina.TTF" id="2_hgtjj"]
-[ext_resource type="FontFile" uid="uid://casao8o4at025" path="res://danielbk.ttf" id="3_hgtjj"]
+[ext_resource type="FontFile" uid="uid://co3q0p8lf8jib" path="res://art/ui/angelina.TTF" id="2_hgtjj"]
+[ext_resource type="FontFile" uid="uid://casao8o4at025" path="res://art/ui/danielbk.ttf" id="3_hgtjj"]
 [ext_resource type="Theme" uid="uid://bx1ny4oxdum8q" path="res://uibutton.tres" id="6_r8a1s"]
 [ext_resource type="Texture2D" uid="uid://sxbf6rd16sjn" path="res://art/ui/IMG_5336 - Copy.jpg" id="7_76goi"]
 [ext_resource type="Texture2D" uid="uid://bh3rog7gs5kyx" path="res://art/ui/arrow 2 - Copy.png" id="7_i8pxr"]
@@ -26,6 +26,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_w3fx8")
+may = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1

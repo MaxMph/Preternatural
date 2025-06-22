@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://3caeoyrh5eoh"]
+
+[ext_resource type="Script" uid="uid://43ms3yvhtece" path="res://dialogue_plugin_experiment.gd" id="1_p8qxt"]
+[ext_resource type="Texture2D" uid="uid://h3hkjk8ujv62" path="res://art/IMG_54002.png" id="1_ptsuk"]
+[ext_resource type="Texture2D" uid="uid://rjnyuy34lwhr" path="res://art/postfall (tonal).png" id="2_hlqki"]
+[ext_resource type="Resource" uid="uid://d0kmq57a7kg6j" path="res://main.dialogue" id="2_lg5c8"]
+[ext_resource type="Script" uid="uid://c0vjfyl0ysqa4" path="res://dialogue trigger.gd" id="5_vduju"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lg5c8"]
+radius = 132.0
+height = 264.0
+
+[node name="dialogue plugin experiment" type="Node2D" groups=["main"]]
+script = ExtResource("1_p8qxt")
+dialogue_res = ExtResource("2_lg5c8")
+
+[node name="Img5400" type="Sprite2D" parent="."]
+position = Vector2(1, -4)
+scale = Vector2(0.89, 0.89)
+texture = ExtResource("1_ptsuk")
+
+[node name="Img5401" type="Sprite2D" parent="."]
+position = Vector2(1, -4)
+scale = Vector2(0.89, 0.89)
+texture = ExtResource("2_hlqki")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, -4)
+scale = Vector2(0.89, 0.89)
+
+[node name="may_trigger" type="Area2D" parent="."]
+script = ExtResource("5_vduju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="may_trigger"]
+position = Vector2(-131, -216)
+shape = SubResource("CapsuleShape2D_lg5c8")
+
+[connection signal="input_event" from="may_trigger" to="may_trigger" method="_on_input_event"]

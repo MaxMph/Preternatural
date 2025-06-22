@@ -18,6 +18,12 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://global.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+DialogueConditions="*res://dialogue_conditions.gd"
+
+[dialogue_manager]
+
+runtime/balloon_path="res:///balloon.tscn"
 
 [display]
 
@@ -26,4 +32,12 @@ window/size/viewport_height=800
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg")
+
+[global_group]
+
+main=""
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://level 1 dialouge.dialogue", "res://main.dialogue", "res://outside1.dialogue")

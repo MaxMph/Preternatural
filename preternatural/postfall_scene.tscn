@@ -3,14 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://h3hkjk8ujv62" path="res://art/IMG_54002.png" id="1_v0mlb"]
 [ext_resource type="PackedScene" uid="uid://bgyou4euckbgx" path="res://dialouge.tscn" id="2_1it4p"]
 [ext_resource type="Texture2D" uid="uid://rjnyuy34lwhr" path="res://art/postfall (tonal).png" id="2_j5qbg"]
-[ext_resource type="Texture2D" uid="uid://caxkv7oypqcsc" path="res://786.jpg" id="3_j5qbg"]
+[ext_resource type="Texture2D" uid="uid://caxkv7oypqcsc" path="res://art/786.jpg" id="3_j5qbg"]
 [ext_resource type="Script" uid="uid://ban1i0cvx6pk6" path="res://event_trigger.gd" id="5_kjj8i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fcmea"]
 radius = 59.0
 height = 194.0
 
-[node name="postfall scene" type="Node2D"]
+[node name="postfall scene" type="Node2D" groups=["main"]]
 
 [node name="Img5400" type="Sprite2D" parent="."]
 position = Vector2(1, -4)
@@ -47,8 +47,5 @@ position = Vector2(-86, -275)
 shape = SubResource("CapsuleShape2D_fcmea")
 
 [node name="Area2D" type="Area2D" parent="events/triggers"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="events/triggers/Area2D"]
-script = ExtResource("5_kjj8i")
 
 [connection signal="input_event" from="events/triggers/may_trigger" to="events/triggers/may_trigger" method="_on_input_event"]

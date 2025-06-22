@@ -1,0 +1,40 @@
+~ intro
+May: Shit man.
+May: Is everyone alright?
+#- First one
+#	Nathan: You picked the first one.
+#- Second one
+#	Nathan: You picked the second one.
+#- Start again => start
+#- End the conversation => END
+- Yes.
+	{{Global.playername}}: I think im fine.
+Ben: I hit my head, but I think I will be ok.
+Ben: I cant believe the roof just...
+Ben: collapsed
+May: Its not like the building is maintained, there are warning signs for a reason.
+May: we should have been more carfull.
+Ben: yea...
+=> END
+
+~ may_convo
+if Global.may_convo1 == true
+	did you find an way out? I think im getting a headache.
+	- Yes [if Global.area_explored == true]
+	- No
+		You: not yet.
+else
+	#May: it smells like rot in here, theres probably still some lingering gas from the leek.
+	May: It smells like rotten eggs in here,
+	May: some of the gass pipes must have broken in the collapse.
+	May: Lets hope its not enough to cause any problems...
+	- ask what to do.
+	You: What should we do now?
+	May: I dont know about you but this was more than enough exitement for one day.
+	May: we should probably just head home, we can meet up another time.
+	- where do we leave?
+		how should I know?
+	- I will go look for an exit.
+		Ok, I'll wait here with Ben, dont take too long.
+	set Global.may_convo1 = true:
+=> END

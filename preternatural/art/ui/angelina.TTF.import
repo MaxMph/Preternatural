@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://co3q0p8lf8jib"
-path="res://.godot/imported/angelina.TTF-b1604f1289c1e170db8e2ee29902d91d.fontdata"
+path="res://.godot/imported/angelina.TTF-ef9e1165efdff71e3fa3e6603d59bd28.fontdata"
 
 [deps]
 
-source_file="res://angelina.TTF"
-dest_files=["res://.godot/imported/angelina.TTF-b1604f1289c1e170db8e2ee29902d91d.fontdata"]
+source_file="res://art/ui/angelina.TTF"
+dest_files=["res://.godot/imported/angelina.TTF-ef9e1165efdff71e3fa3e6603d59bd28.fontdata"]
 
 [params]
 
