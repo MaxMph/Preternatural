@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dvheanadk4j2o"
+path="res://.godot/imported/afterfall.dialogue-e30bddd08063fe9c9755f8b61ac4ff13.tres"
+
+[deps]
+
+source_file="res://afterfall.dialogue"
+dest_files=["res://.godot/imported/afterfall.dialogue-e30bddd08063fe9c9755f8b61ac4ff13.tres"]
+
+[params]
+
+defaults=true

@@ -1,7 +1,7 @@
 ~ intro
 June 19th
-May: Tuesday, 5:45
-Ruchmond Virginia
+Tuesday, 5:45
+Richmond Virginia
 => END
 
 ~ broken_ladder
@@ -10,6 +10,8 @@ if DialogueConditions.found_ladder == true
 	- Use the other ladder.
 		do DialogueConditions.main.show_ladder()
 		- climb
+			do DialogueConditions.main.switch_scene()
+			=> END!
 => END
 
 ~ found_ladder

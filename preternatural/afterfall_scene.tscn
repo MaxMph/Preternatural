@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://be5guflgx7ptv"]
+
+[ext_resource type="Script" uid="uid://biefbi0i63t5l" path="res://main.gd" id="1_q4ojq"]
+[ext_resource type="Resource" uid="uid://d0kmq57a7kg6j" path="res://main.dialogue" id="2_3htxo"]
+[ext_resource type="Texture2D" uid="uid://h3hkjk8ujv62" path="res://art/IMG_54002.png" id="2_4kblj"]
+[ext_resource type="Texture2D" uid="uid://rjnyuy34lwhr" path="res://art/postfall (tonal).png" id="3_3htxo"]
+[ext_resource type="Script" uid="uid://ban1i0cvx6pk6" path="res://event_trigger.gd" id="5_3htxo"]
+[ext_resource type="PackedScene" uid="uid://bfw8l3kt1xmnr" path="res://overlay.tscn" id="6_3y4yt"]
+[ext_resource type="PackedScene" uid="uid://bwuh45o62s8l5" path="res://cursor.tscn" id="7_d2q7q"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3y4yt"]
+radius = 132.0
+height = 264.0
+
+[node name="afterfall_scene" type="Node2D"]
+script = ExtResource("1_q4ojq")
+dialogue_res = ExtResource("2_3htxo")
+auto_start = true
+
+[node name="Img5400" type="Sprite2D" parent="."]
+position = Vector2(1, -4)
+scale = Vector2(0.89, 0.89)
+texture = ExtResource("2_4kblj")
+
+[node name="Img5401" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, -4)
+scale = Vector2(0.89, 0.89)
+texture = ExtResource("3_3htxo")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, -4)
+scale = Vector2(0.89, 0.89)
+
+[node name="triggers" type="Node" parent="."]
+
+[node name="may_trigger" type="Area2D" parent="triggers"]
+script = ExtResource("5_3htxo")
+startpoint = "may_convo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="triggers/may_trigger"]
+position = Vector2(-357, 137)
+shape = SubResource("CapsuleShape2D_3y4yt")
+
+[node name="overlay" parent="." instance=ExtResource("6_3y4yt")]
+
+[node name="cursor" parent="." instance=ExtResource("7_d2q7q")]
+
+[connection signal="input_event" from="triggers/may_trigger" to="triggers/may_trigger" method="_on_input_event"]

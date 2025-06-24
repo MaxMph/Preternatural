@@ -28,3 +28,7 @@ func display_icons():
 		show()
 	else:
 		hide()
+
+func clear_selection():
+	may = false
+	ben = false

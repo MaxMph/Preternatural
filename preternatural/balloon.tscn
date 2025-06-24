@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cau2nwd2g2usv"]
+[gd_scene load_steps=13 format=3 uid="uid://cau2nwd2g2usv"]
 
 [ext_resource type="Script" uid="uid://bh2g3ah48soqo" path="res://balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="PackedScene" uid="uid://c27kefjgw7jkp" path="res://speaker_icon.tscn" id="2_wxbh2"]
 [ext_resource type="Texture2D" uid="uid://2vl2tiu4jy31" path="res://art/IMG_5334_-_Copy-removebg-preview.png" id="3_4nd2f"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="FontFile" uid="uid://c5aemm3cp3ixv" path="res://art/ui/lazy_dog.ttf" id="5_4nd2f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -134,6 +135,8 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_4nd2f")
+theme_override_font_sizes/normal_font_size = 24
 text = "Dialogue..."
 
 [node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" node_paths=PackedStringArray("response_template")]

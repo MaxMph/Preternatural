@@ -32,7 +32,15 @@ scale = Vector2(0.89, 0.89)
 script = ExtResource("5_vduju")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="may_trigger"]
-position = Vector2(-131, -216)
+position = Vector2(-357, 137)
+shape = SubResource("CapsuleShape2D_lg5c8")
+
+[node name="may_trigger2" type="Area2D" parent="."]
+script = ExtResource("5_vduju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="may_trigger2"]
+position = Vector2(-357, 137)
 shape = SubResource("CapsuleShape2D_lg5c8")
 
 [connection signal="input_event" from="may_trigger" to="may_trigger" method="_on_input_event"]
+[connection signal="input_event" from="may_trigger2" to="may_trigger2" method="_on_input_event"]

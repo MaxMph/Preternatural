@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://jg103rsyifkx"]
+[gd_scene load_steps=12 format=3 uid="uid://jg103rsyifkx"]
 
-[ext_resource type="Texture2D" uid="uid://caxkv7oypqcsc" path="res://art/786.jpg" id="1_420e8"]
-[ext_resource type="Script" uid="uid://biefbi0i63t5l" path="res://outside_start.gd" id="1_xwfoi"]
+[ext_resource type="Script" uid="uid://biefbi0i63t5l" path="res://main.gd" id="1_xwfoi"]
 [ext_resource type="Resource" uid="uid://blbi3yu77ssjg" path="res://outside1.dialogue" id="2_dml7h"]
+[ext_resource type="PackedScene" uid="uid://nryacx1koxib" path="res://roof_scene.tscn" id="2_i8pxg"]
 [ext_resource type="Texture2D" uid="uid://byghl4jchheje" path="res://art/IMG_5330 - Copy (2).png" id="2_xwfoi"]
 [ext_resource type="Texture2D" uid="uid://c0cieb1b6en8r" path="res://art/ladder-removebg-preview.png" id="3_dml7h"]
 [ext_resource type="Script" uid="uid://ban1i0cvx6pk6" path="res://event_trigger.gd" id="4_i8pxg"]
+[ext_resource type="PackedScene" uid="uid://bfw8l3kt1xmnr" path="res://overlay.tscn" id="7_i8pxg"]
+[ext_resource type="PackedScene" uid="uid://bwuh45o62s8l5" path="res://cursor.tscn" id="8_bv5ka"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bv5ka"]
 radius = 51.0
@@ -21,7 +23,9 @@ height = 641.609
 
 [node name="outside_start" type="Node2D" groups=["main"]]
 script = ExtResource("1_xwfoi")
+next_scene1 = ExtResource("2_i8pxg")
 dialogue_res = ExtResource("2_dml7h")
+auto_start = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -76,13 +80,9 @@ startpoint = "working_ladder"
 position = Vector2(-4.57101, -78.0619)
 shape = SubResource("CapsuleShape2D_jhmu0")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="overlay" parent="." instance=ExtResource("7_i8pxg")]
 
-[node name="paper overlay" type="Sprite2D" parent="CanvasLayer"]
-modulate = Color(0.756467, 0.685247, 0.632174, 0.364706)
-z_index = 1
-position = Vector2(628, 399)
-texture = ExtResource("1_420e8")
+[node name="cursor" parent="." instance=ExtResource("8_bv5ka")]
 
 [connection signal="input_event" from="triggers/ladder (broken)" to="triggers/ladder (broken)" method="_on_input_event"]
 [connection signal="input_event" from="triggers/trash" to="triggers/trash" method="_on_input_event"]

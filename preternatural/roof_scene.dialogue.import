@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://c0f76p23d4dn5"
+path="res://.godot/imported/roof_scene.dialogue-8351e833609f1630c8f7efcd6117b510.tres"
+
+[deps]
+
+source_file="res://roof_scene.dialogue"
+dest_files=["res://.godot/imported/roof_scene.dialogue-8351e833609f1630c8f7efcd6117b510.tres"]
+
+[params]
+
+defaults=true

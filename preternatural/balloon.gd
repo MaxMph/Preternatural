@@ -108,6 +108,7 @@ func apply_dialogue_line() -> void:
 			speaker_icon.may = true
 		"ben": speaker_icon.ben = true
 	speaker_icon.display_icons()
+	speaker_icon.clear_selection()
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line

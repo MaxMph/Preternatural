@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://nryacx1koxib"]
+
+[ext_resource type="Script" uid="uid://biefbi0i63t5l" path="res://main.gd" id="1_av44r"]
+[ext_resource type="PackedScene" uid="uid://be5guflgx7ptv" path="res://afterfall_scene.tscn" id="2_62lab"]
+[ext_resource type="Resource" uid="uid://c0f76p23d4dn5" path="res://roof_scene.dialogue" id="3_qmq0y"]
+[ext_resource type="PackedScene" uid="uid://bfw8l3kt1xmnr" path="res://overlay.tscn" id="4_62lab"]
+[ext_resource type="PackedScene" uid="uid://bwuh45o62s8l5" path="res://cursor.tscn" id="5_qmq0y"]
+
+[node name="roof_scene" type="Node2D"]
+script = ExtResource("1_av44r")
+next_scene1 = ExtResource("2_62lab")
+dialogue_res = ExtResource("3_qmq0y")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.5
+offset_top = -24.5
+offset_right = 188.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Temp scene
+(meet friends on roof, very windy, roof collapses)"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = 46.0
+offset_right = 80.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "move to next scene"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="overlay" parent="." instance=ExtResource("4_62lab")]
+
+[node name="cursor" parent="." instance=ExtResource("5_qmq0y")]
+
+[connection signal="pressed" from="Button" to="." method="switch_scene"]
