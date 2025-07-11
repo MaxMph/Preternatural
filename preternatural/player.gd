@@ -1,4 +1,4 @@
-extends ColorRect
+extends Sprite2D
 
 var speed = 0.0
 var maxspeed = 180
@@ -26,20 +26,21 @@ func _process(delta: float) -> void:
 	var array = []
 	#array.size()
 	
-	if $Area2D.get_overlapping_bodies().size() > 0:
-		for i in $Area2D.get_overlapping_bodies():
-			if i.is_in_group("wall"):
-				get_tree().reload_current_scene()
-			if i.is_in_group("endline"):
-				get_tree().reload_current_scene()
+	#if $Area2D.get_overlapping_bodies().size() > 0:
+		#for i in $Area2D.get_overlapping_bodies():
+			#if i.is_in_group("wall"):
+				#get_tree().reload_current_scene()
+			#if i.is_in_group("endline"):
+				#get_tree().reload_current_scene()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("colliding")
 	if body.is_in_group("wall"):
+		print("colliding")
+		get_tree().reload_current_scene()
 		queue_free()
 	if body.is_in_group("endline"):
 		get_tree().get_first_node_in_group("main").start_attack()
-	get_tree().reload_current_scene()
+		get_tree().reload_current_scene()
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:

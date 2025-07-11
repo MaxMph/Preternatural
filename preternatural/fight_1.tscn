@@ -1,0 +1,152 @@
+[gd_scene load_steps=11 format=3 uid="uid://cw42000tb5th1"]
+
+[ext_resource type="Script" uid="uid://eba0v0vvo5c2" path="res://fight.gd" id="1_o8bb2"]
+[ext_resource type="Texture2D" uid="uid://l5c6aq5iv0o4" path="res://art/border1.png" id="1_ulsum"]
+[ext_resource type="PackedScene" uid="uid://bfw8l3kt1xmnr" path="res://overlay.tscn" id="2_o8bb2"]
+[ext_resource type="Texture2D" uid="uid://cqllmobixrmqs" path="res://art/fall1-2.jpg" id="3_j88te"]
+[ext_resource type="Texture2D" uid="uid://cayjwnm72v6b5" path="res://art/heart.jpg" id="5_o8bb2"]
+[ext_resource type="AudioStream" uid="uid://dqkl0myn5tad4" path="res://art/heartbeat (1).wav" id="6_j88te"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ti2g0"]
+size = Vector2(701.25, 276.877)
+
+[sub_resource type="Animation" id="Animation_j88te"]
+resource_name = "beat"
+length = 1.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.35, 0.325), Vector2(0.4, 0.371), Vector2(0.38, 0.352), Vector2(0.4, 0.371), Vector2(0.35, 0.325)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_vhxq2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.35, 0.325)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ti2g0"]
+_data = {
+&"RESET": SubResource("Animation_vhxq2"),
+&"beat": SubResource("Animation_j88te")
+}
+
+[node name="fight_1" type="Node2D" node_paths=PackedStringArray("sprite") groups=["main"]]
+script = ExtResource("1_o8bb2")
+sprite = NodePath("Fall1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, -4)
+scale = Vector2(0.89, 0.89)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -4
+custom_minimum_size = Vector2(1400, 1000)
+offset_left = -696.0
+offset_top = -480.0
+offset_right = 704.0
+offset_bottom = 520.0
+
+[node name="Border1" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ulsum")
+
+[node name="overlay" parent="." instance=ExtResource("2_o8bb2")]
+
+[node name="Fall1" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, 1136)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_j88te")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Fall1" groups=["wall"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fall1/StaticBody2D"]
+polygon = PackedVector2Array(-221.25, -1492.5, -212.5, -1450, -190, -1422.5, -170, -1367.5, -151.25, -1313.75, -166.25, -1206.25, -85, -970, -85, -881.25, -87.5, -867.5, -77.5, -843.75, -56.25, -730, -57.5, -676.25, -71.25, -647.5, -128.75, -585, -160, -527.5, -168.75, -452.5, -168.75, -368.75, -156.25, -283.75, -156.25, -256.25, -161.25, -222.5, -157.5, -191.25, -120, -118.75, -103.75, -84.9999, -105, -56.25, -141.25, -12.5, -160, 1.25, -168.75, 40, -158.75, 70, -166.25, 277.5, -177.5, 451.25, -155, 565, -108.75, 638.75, -80, 665, -63.75, 673.75, -45, 710, -40, 741.25, -77.5, 775, -132.5, 797.5, -157.5, 831.25, -166.25, 860, -168.75, 938.75, -182.5, 968.75, -216.25, 990, -271.25, 1008.75, -287.5, 1028.75, -265, 1248.75, -201.25, 1365, -146.25, 1388.75, -128.75, 1427.5, -122.5, 1502.5, -345, 1505, -357.5, -1488.75)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Fall1/StaticBody2D"]
+position = Vector2(58.02, 43.7673)
+polygon = PackedVector2Array(81.98, -1537.52, 79.48, -1496.27, 53.23, -1437.52, 65.73, -1331.27, 49.48, -1247.52, 60.73, -1155.02, 6.97998, -995.017, 45.73, -916.267, 143.23, -800.017, 151.98, -716.267, 136.98, -670.017, 138.23, -621.267, 186.98, -482.517, 185.73, -417.517, 98.23, -277.517, 76.98, -206.267, 66.98, -97.5175, -48.02, 56.2325, -50.52, 128.733, -13.02, 216.233, -33.02, 249.983, -80.52, 264.983, -95.52, 287.483, -99.27, 318.733, -79.27, 343.733, -19.27, 377.483, 21.98, 613.733, 11.98, 818.733, -51.77, 886.233, -113.02, 911.233, -131.77, 931.233, -148.02, 972.483, -145.52, 1088.73, -195.52, 1101.23, -209.27, 1124.98, -193.02, 1167.48, -150.52, 1187.48, -113.02, 1212.48, 34.48, 1401.23, 64.48, 1454.98, 289.48, 1448.73, 253.23, -1542.52)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Fall1/StaticBody2D"]
+polygon = PackedVector2Array(48.75, -608.75, 16.25, -541.25, 12.5, -472.5, 37.5, -453.75, 68.75, -485, 71.25, -562.5)
+
+[node name="Fall2" type="Sprite2D" parent="Fall1"]
+position = Vector2(-6.25, 2982.5)
+rotation = -3.14159
+texture = ExtResource("3_j88te")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Fall1/Fall2" groups=["wall"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fall1/Fall2/StaticBody2D"]
+polygon = PackedVector2Array(-221.25, -1492.5, -212.5, -1450, -190, -1422.5, -170, -1367.5, -151.25, -1313.75, -166.25, -1206.25, -85, -970, -85, -881.25, -87.5, -867.5, -77.5, -843.75, -56.25, -730, -57.5, -676.25, -71.25, -647.5, -128.75, -585, -160, -527.5, -168.75, -452.5, -168.75, -368.75, -156.25, -283.75, -156.25, -256.25, -161.25, -222.5, -157.5, -191.25, -120, -118.75, -103.75, -84.9999, -105, -56.25, -141.25, -12.5, -160, 1.25, -168.75, 40, -158.75, 70, -166.25, 277.5, -177.5, 451.25, -155, 565, -108.75, 638.75, -80, 665, -63.75, 673.75, -45, 710, -40, 741.25, -77.5, 775, -132.5, 797.5, -157.5, 831.25, -166.25, 860, -168.75, 938.75, -182.5, 968.75, -216.25, 990, -271.25, 1008.75, -287.5, 1028.75, -265, 1248.75, -201.25, 1365, -146.25, 1388.75, -128.75, 1427.5, -122.5, 1502.5, -345, 1505, -357.5, -1488.75)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Fall1/Fall2/StaticBody2D"]
+position = Vector2(58.02, 43.7673)
+polygon = PackedVector2Array(81.98, -1537.52, 79.48, -1496.27, 53.23, -1437.52, 65.73, -1331.27, 49.48, -1247.52, 60.73, -1155.02, 6.97998, -995.017, 45.73, -916.267, 143.23, -800.017, 151.98, -716.267, 136.98, -670.017, 138.23, -621.267, 186.98, -482.517, 185.73, -417.517, 98.23, -277.517, 76.98, -206.267, 66.98, -97.5175, -48.02, 56.2325, -50.52, 128.733, -13.02, 216.233, -33.02, 249.983, -80.52, 264.983, -95.52, 287.483, -99.27, 318.733, -79.27, 343.733, -19.27, 377.483, 21.98, 613.733, 11.98, 818.733, -51.77, 886.233, -113.02, 911.233, -131.77, 931.233, -148.02, 972.483, -145.52, 1088.73, -195.52, 1101.23, -209.27, 1124.98, -193.02, 1167.48, -150.52, 1187.48, -113.02, 1212.48, 34.48, 1401.23, 64.48, 1454.98, 289.48, 1448.73, 253.23, -1542.52)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Fall1/Fall2/StaticBody2D"]
+polygon = PackedVector2Array(48.75, -608.75, 16.25, -541.25, 12.5, -472.5, 37.5, -453.75, 68.75, -485, 71.25, -562.5)
+
+[node name="end" type="StaticBody2D" parent="Fall1/Fall2" groups=["endline"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fall1/Fall2/end"]
+position = Vector2(-6.25488, -1098.75)
+shape = SubResource("RectangleShape2D_ti2g0")
+
+[node name="Heart" type="Sprite2D" parent="."]
+position = Vector2(0, -183)
+scale = Vector2(0.35, 0.325)
+texture = ExtResource("5_o8bb2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Heart"]
+libraries = {
+&"": SubResource("AnimationLibrary_ti2g0")
+}
+autoplay = "beat"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Heart"]
+stream = ExtResource("6_j88te")
+max_polyphony = 4

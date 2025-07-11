@@ -8,8 +8,8 @@ var fallspeed = 0.0
 var max_fallspeed = 400
 var fall_acc = 14
 
-@onready var playerscene = preload("res://player.tscn")
-var player_instloc = Vector2(588.0, 418.0)
+@onready var playerscene = preload("res://player_(try_2).tscn")
+var player_instloc =  Vector2(0.0, 30.0) #Vector2(588.0, 418.0)
 
 #states
 var falling = true
@@ -23,7 +23,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if falling == true:
 		#print(fallspeed)
-		$CanvasLayer/TextureRect2/AnimationPlayer.speed_scale = 0.8 + fallspeed/ max_fallspeed
+		$Heart/AnimationPlayer.speed_scale = 0.8 + fallspeed/ max_fallspeed
 		sprite.global_position.y += -fallspeed * delta
 		if fallspeed < max_fallspeed:
 			fallspeed += fall_acc * delta
@@ -31,16 +31,14 @@ func _process(delta: float) -> void:
 		pass
 
 func start_attack():
-	$CanvasLayer/Fall1.hide()
+	#$CanvasLayer/Fall1.hide()
 	attacking = true
 	falling = false
 
 func start_fall():
-	$CanvasLayer/Fall1.show()
+	#$CanvasLayer/Fall1.show()
 	var player = playerscene.instantiate()
-	$CanvasLayer.add_child(player)
+	add_child(player)
 	player.position = player_instloc	
 	attacking = false
 	falling = true
-	
-	

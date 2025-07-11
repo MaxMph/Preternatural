@@ -7,6 +7,33 @@
 [ext_resource type="Texture2D" uid="uid://cqllmobixrmqs" path="res://art/fall1-2.jpg" id="4_cnldr"]
 [ext_resource type="AudioStream" uid="uid://dqkl0myn5tad4" path="res://art/heartbeat (1).wav" id="5_vy6bg"]
 
+[sub_resource type="Animation" id="Animation_vy6bg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_5or28"]
 resource_name = "heartbeat"
 length = 1.2
@@ -31,33 +58,6 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0.09),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_vy6bg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -174,7 +174,6 @@ polygon = PackedVector2Array(48.75, -608.75, 16.25, -541.25, 12.5, -472.5, 37.5,
 [node name="Fall2" type="Sprite2D" parent="CanvasLayer/Fall1"]
 position = Vector2(-6.25, 2982.5)
 rotation = -3.14159
-scale = Vector2(1, 1)
 texture = ExtResource("4_cnldr")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/Fall1/Fall2" groups=["wall"]]

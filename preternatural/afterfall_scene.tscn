@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://be5guflgx7ptv"]
+[gd_scene load_steps=11 format=3 uid="uid://be5guflgx7ptv"]
 
 [ext_resource type="Script" uid="uid://biefbi0i63t5l" path="res://main.gd" id="1_q4ojq"]
 [ext_resource type="Resource" uid="uid://d0kmq57a7kg6j" path="res://main.dialogue" id="2_3htxo"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://ban1i0cvx6pk6" path="res://event_trigger.gd" id="5_3htxo"]
 [ext_resource type="PackedScene" uid="uid://bfw8l3kt1xmnr" path="res://overlay.tscn" id="6_3y4yt"]
 [ext_resource type="PackedScene" uid="uid://bwuh45o62s8l5" path="res://cursor.tscn" id="7_d2q7q"]
+[ext_resource type="Texture2D" uid="uid://sxbf6rd16sjn" path="res://art/ui/IMG_5336 - Copy.jpg" id="8_x05bn"]
+[ext_resource type="Texture2D" uid="uid://dtehu0lg1j6o7" path="res://art/ui/IMG_5392.png" id="9_yeb4a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3y4yt"]
 radius = 132.0
@@ -45,5 +47,19 @@ shape = SubResource("CapsuleShape2D_3y4yt")
 [node name="overlay" parent="." instance=ExtResource("6_3y4yt")]
 
 [node name="cursor" parent="." instance=ExtResource("7_d2q7q")]
+
+[node name="Button" type="Button" parent="."]
+offset_left = -535.0
+offset_top = -399.0
+offset_right = -418.0
+offset_bottom = -349.0
+icon = ExtResource("8_x05bn")
+flat = true
+expand_icon = true
+
+[node name="Img5392" type="Sprite2D" parent="Button"]
+position = Vector2(58.5, 24)
+scale = Vector2(0.277778, 0.182946)
+texture = ExtResource("9_yeb4a")
 
 [connection signal="input_event" from="triggers/may_trigger" to="triggers/may_trigger" method="_on_input_event"]
